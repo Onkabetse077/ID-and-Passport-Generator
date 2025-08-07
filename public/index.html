@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="styles.css">
+  <title>SA ID & Passport Generator</title>
+  <style>
+    
+  </style>
+</head>
+<body>
+   <h1>South African ID & Passport Generator</h1>
+  <div class="container">
+    <label for="dob">Enter Date of Birth:</label>
+    <input type="date" id="dob" min="1900-01-01" max="" />
+
+    <label for="gender">Select Gender:</label>
+    <select id="gender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+
+    <button onclick="generateID()">Generate SA ID Number</button>
+    <div id="idResult" class="result"></div>
+
+    <button onclick="generatePassport()">Generate Passport Number</button>
+    <div id="passportResult" class="result"></div>
+
+    <button onclick="copyToClipboard()">📋 Copy to Clipboard</button>
+    <button onclick="exportToFile()">📁 Export to File</button>
+  </div>
+  <script src="script.js"> </script>
+</body>
+</html>

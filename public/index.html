@@ -3,14 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="styles.css">
   <title>SA ID & Passport Generator</title>
   <style>
-    
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #444;
+    }
+    .container {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input[type="date"], select {
+      padding: 8px;
+      margin-top: 5px;
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
   </style>
 </head>
 <body>
-   <h1>South African ID & Passport Generator</h1>
+  <h1>South African ID & Passport Generator</h1>
   <div class="container">
     <label for="dob">Enter Date of Birth:</label>
     <input type="date" id="dob" min="1900-01-01" max="" />
@@ -30,6 +77,114 @@
     <button onclick="copyToClipboard()">📋 Copy to Clipboard</button>
     <button onclick="exportToFile()">📁 Export to File</button>
   </div>
-  <script src="script.js"> </script>
+
+  <script>
+    document.getElementById("dob").max = new Date().toISOString().split("T")[0];
+
+    let lastGeneratedID = "";
+    let lastGeneratedPassport = "";
+
+    function pad(num, size) {
+      let s = num + "";
+      while (s.length < size) s = "0" + s;
+      return s;
+    }
+
+    function luhnChecksum(id) {
+      let sum = 0;
+      for (let i = 0; i < 12; i++) {
+        let digit = parseInt(id.charAt(i));
+        if ((i + 1) % 2 === 0) {
+          digit *= 2;
+          if (digit > 9) digit -= 9;
+        }
+        sum += digit;
+      }
+      return (10 - (sum % 10)) % 10;
+    }
+
+    function generateID() {
+      const dobInput = document.getElementById("dob").value;
+      const gender = document.getElementById("gender").value;
+
+      if (!dobInput) {
+        alert("Please enter a valid date of birth.");
+        return;
+      }
+
+      const date = new Date(dobInput);
+      const today = new Date();
+      if (date > today || date.getFullYear() < 1900) {
+        alert("DOB must be between 1900 and today.");
+        return;
+      }
+
+      const year = pad(date.getFullYear() % 100, 2);
+      const month = pad(date.getMonth() + 1, 2);
+      const day = pad(date.getDate(), 2);
+      const dob = year + month + day;
+
+      let genderSeq;
+      if (gender === "male") {
+        genderSeq = pad(Math.floor(Math.random() * 5000) + 5000, 4);
+      } else {
+        genderSeq = pad(Math.floor(Math.random() * 5000), 4);
+      }
+
+      let citizenship = Math.random() < 0.9 ? "0" : "1";
+      let race = "8";
+      let partialID = dob + genderSeq + citizenship + race;
+      let checksum = luhnChecksum(partialID);
+      let fullID = partialID + checksum;
+
+      lastGeneratedID = fullID;
+      document.getElementById("idResult").innerText = "Generated ID: " + fullID;
+    }
+
+    function generatePassport() {
+      let prefix = Math.random() < 0.5 ? "A" : "B";
+      let number = Math.floor(Math.random() * 1_0000_0000);
+      let passport = prefix + pad(number, 8);
+
+      lastGeneratedPassport = passport;
+      document.getElementById("passportResult").innerText = "Generated Passport: " + passport;
+    }
+
+    function exportToFile() {
+      let content = "";
+      if (lastGeneratedID) content += "SA ID Number: " + lastGeneratedID + "\n";
+      if (lastGeneratedPassport) content += "Passport Number: " + lastGeneratedPassport + "\n";
+
+      if (!content) {
+        alert("Please generate an ID or Passport first.");
+        return;
+      }
+
+      const blob = new Blob([content], { type: "text/plain" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "generated_documents.txt";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function copyToClipboard() {
+      let content = "";
+      if (lastGeneratedID) content += "SA ID Number: " + lastGeneratedID + "\n";
+      if (lastGeneratedPassport) content += "Passport Number: " + lastGeneratedPassport + "\n";
+
+      if (!content) {
+        alert("Please generate an ID or Passport first.");
+        return;
+      }
+
+      navigator.clipboard.writeText(content).then(() => {
+        alert("Copied to clipboard!");
+      }).catch(err => {
+        alert("Failed to copy: " + err);
+      });
+    }
+  </script>
 </body>
 </html>

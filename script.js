@@ -1,4 +1,4 @@
-document.getElementById("dob").max = new Date().toISOString().split("T")[0];
+    document.getElementById("dob").max = new Date().toISOString().split("T")[0];
 
     let lastGeneratedID = "";
     let lastGeneratedPassport = "";

@@ -1,0 +1,24 @@
+{
+  "name": "id-and-passport-generator",
+  "version": "1.0.0",
+  "description": "Generates South African ID and Passport Numbers.\r https://id-and-passport-generator.web.app/",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Onkabetse077/ID-and-Passport-Generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Onkabetse077/ID-and-Passport-Generator/issues"
+  },
+  "homepage": "https://github.com/Onkabetse077/ID-and-Passport-Generator#readme",
+  "devDependencies": {
+    "vite": "^7.3.1"
+  }
+}

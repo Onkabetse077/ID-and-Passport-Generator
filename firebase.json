@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "src",
+    "public": "dist\\sa-identity-generator\\browser",
     "ignore": [
       "firebase.json",
       "**/.*",

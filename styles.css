@@ -83,13 +83,19 @@ button:hover {
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:#f4f6f8;
+  background:#f4f6f8; /* light mode default */
   padding:10px;
   border-radius:8px;
   margin-bottom:10px;
   opacity:0;
   transform:translateY(10px);
   transition:0.3s;
+  color: var(--text); /* use variable instead of fixed #333 */
+}
+
+body.dark .result-box {
+  background: #2a2a2a; /* dark mode card background */
+  color: var(--text); /* white-ish text */
 }
 
 .result-box.show {
@@ -118,8 +124,8 @@ button:hover {
   position:fixed;
   bottom:20px;
   right:20px;
-  background:#333;
-  color:white;
+  background: var(--card);
+  color: var(--text);
   padding:12px 20px;
   border-radius:6px;
   opacity:0;

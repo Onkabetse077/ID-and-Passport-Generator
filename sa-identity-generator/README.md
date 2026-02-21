@@ -1,59 +1,70 @@
-# SaIdentityGenerator
+# ID-and-Passport-Generator
+Generates South African ID and Passport Numbers.
+https://id-and-passport-generator.web.app/
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.5.
+Here’s a polished README for your **SA Identity Generator** project, ready to use on GitHub or in your portfolio:
 
-## Development server
+# SA Identity & Passport Generator
 
-To start a local development server, run:
+A modern, web-based tool for generating **South African test identities** including:
 
-```bash
-ng serve
-```
+* **Full Name**
+* **SA ID Number**
+* **Passport Number**
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+The app is fully interactive, responsive, and includes advanced features like **dark/light mode**, **clipboard copy**, **toast notifications**, and **save to TXT**.
 
-## Code scaffolding
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🔹 Features
 
-```bash
-ng generate component component-name
-```
+* **Generate individually**: Name, ID, or Passport separately.
+* **Clipboard support**: Click the icon to copy **only the value** (e.g., `B47744410`).
+* **Dark / Light theme toggle** for better accessibility.
+* **Animated results** when generating new entries.
+* **Save to TXT file**: Automatically saves the generated identity with name + ID/passport.
+* **Modern UI**: Card layout with icons, hover effects, and responsive design.
+* **Toast notifications** instead of alerts for smooth user feedback.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-```bash
-ng generate --help
-```
+## 🔹 Demo Screenshot
 
-## Building
+<img width="914" height="733" alt="image" src="https://github.com/user-attachments/assets/430792e9-9cdf-4764-9702-2e724cd0d71b" />
 
-To build the project run:
 
-```bash
-ng build
-```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 🔹 Installation
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+1. **Clone the repository**:
 
 ```bash
-ng test
+git clone https://github.com/Onkabetse077/ID-and-Passport-Generator.git
 ```
 
-## Running end-to-end tests
+2. **Open `index.html`** in your browser (no server required).
 
-For end-to-end (e2e) testing, run:
 
-```bash
-ng e2e
-```
+## 🔹 Usage
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+1. Select **Date of Birth** and **Gender**.
+2. Click **Generate Name**, **Generate ID**, or **Generate Passport**.
+3. Copy the generated value by clicking the **clipboard icon**.
+4. Optionally, click **Save to TXT** to export the information.
+5. Toggle **Dark/Light mode** using the moon icon in the top-right.
 
-## Additional Resources
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 🔹 Technologies Used
+
+* **HTML5 & CSS3**
+* **JavaScript (ES6)**
+* **Font Awesome** for icons
+* **Blob API** for TXT file export
+* **Flexbox & CSS transitions** for modern UI
+
+
+## 🔹 File Structure
+
+/ID-and-Passport-Generator│
+├─ index.html       # Main HTML page
+├─ styles.css       # Styling with dark/light mode
+├─ script.js        # All JS logic for generation, animations, clipboard, save
+└─ README.md        # Project documentation

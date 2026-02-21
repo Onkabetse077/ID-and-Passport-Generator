@@ -7,26 +7,46 @@
   <title>SA ID & Passport Generator</title>  
 </head>
 <body>
-  <h1>South African ID & Passport Generator</h1>
-  <div class="container">
-    <label for="dob">Enter Date of Birth:</label>
-    <input type="date" id="dob" min="1900-01-01" max="" />
 
-    <label for="gender">Select Gender:</label>
-    <select id="gender">
-      <option value="male">Male</option>
-      <option value="female">Female</option>
-    </select>
+  <div class="app">
+    <h1>SA ID & Passport Generator</h1>
+    <p class="subtitle">Generate test identities instantly</p>
 
-    <button onclick="generateID()">Generate SA ID Number</button>
-    <div id="idResult" class="result"></div>
+    <div class="card">
 
-    <button onclick="generatePassport()">Generate Passport Number</button>
-    <div id="passportResult" class="result"></div>
+      <div class="form-group">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" min="1900-01-01" max="" />
+      </div>
 
-    <button onclick="copyToClipboard()">📋 Copy to Clipboard</button>
-    <button onclick="exportToFile()">📁 Export to File</button>
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <select id="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+
+      <div class="button-group">
+        <button onclick="generateName()">Generate Name</button>
+        <button onclick="generateID()">Generate SA ID</button>
+        <button onclick="generatePassport()">Generate Passport</button>
+      </div>
+
+      <div class="results">
+        <div id="nameResult" class="result-box"></div>
+        <div id="idResult" class="result-box"></div>
+        <div id="passportResult" class="result-box"></div>
+      </div>
+
+      <div class="button-group secondary">
+        <button onclick="copyToClipboard()">Copy</button>
+        <button onclick="exportToFile()">Export</button>
+      </div>
+
+    </div>
   </div>
- <script src="script.js"></script> 
+
+<script src="script.js"></script>
 </body>
 </html>

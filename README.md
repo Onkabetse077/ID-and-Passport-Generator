@@ -28,7 +28,8 @@ The app is fully interactive, responsive, and includes advanced features like **
 
 ## 🔹 Demo Screenshot
 
-*(Include screenshot of your app here with generated data visible)*
+<img width="914" height="733" alt="image" src="https://github.com/user-attachments/assets/430792e9-9cdf-4764-9702-2e724cd0d71b" />
+
 
 
 ## 🔹 Installation

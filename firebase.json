@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist\\sa-identity-generator",
+    "public": "dist/Hostsa-identity-generator",
     "ignore": [
       "firebase.json",
       "**/.*",

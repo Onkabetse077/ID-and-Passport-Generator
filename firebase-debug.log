@@ -1,0 +1,47 @@
+[debug] [2026-02-21T22:25:25.153Z] ----------------------------------------------------------------------
+[debug] [2026-02-21T22:25:25.156Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\gosia\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2026-02-21T22:25:25.156Z] CLI Version:   14.12.0
+[debug] [2026-02-21T22:25:25.156Z] Platform:      win32
+[debug] [2026-02-21T22:25:25.156Z] Node Version:  v22.19.0
+[debug] [2026-02-21T22:25:25.156Z] Time:          Sun Feb 22 2026 00:25:25 GMT+0200 (South Africa Standard Time)
+[debug] [2026-02-21T22:25:25.156Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-02-21T22:25:25.371Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-21T22:25:25.371Z] > authorizing via signed-in user (gosiameonkabetse1@gmail.com)
+[debug] [2026-02-21T22:25:25.371Z] [iam] checking project id-and-passport-generator for permissions ["firebase.projects.get"]
+[debug] [2026-02-21T22:25:25.372Z] Checked if tokens are valid: true, expires at: 1771716244143
+[debug] [2026-02-21T22:25:25.372Z] Checked if tokens are valid: true, expires at: 1771716244143
+[debug] [2026-02-21T22:25:25.373Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/id-and-passport-generator:testIamPermissions [none]
+[debug] [2026-02-21T22:25:25.373Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/id-and-passport-generator:testIamPermissions x-goog-quota-user=projects/id-and-passport-generator
+[debug] [2026-02-21T22:25:25.373Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/id-and-passport-generator:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2026-02-21T22:25:26.220Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/id-and-passport-generator:testIamPermissions 200
+[debug] [2026-02-21T22:25:26.220Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/id-and-passport-generator:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2026-02-21T22:25:26.221Z] Checked if tokens are valid: true, expires at: 1771716244143
+[debug] [2026-02-21T22:25:26.221Z] Checked if tokens are valid: true, expires at: 1771716244143
+[debug] [2026-02-21T22:25:26.221Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/id-and-passport-generator [none]
+[debug] [2026-02-21T22:25:27.126Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/id-and-passport-generator 200
+[debug] [2026-02-21T22:25:27.126Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/id-and-passport-generator {"projectNumber":"401898094979","projectId":"id-and-passport-generator","lifecycleState":"ACTIVE","name":"ID and Passport Generator","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-08-07T15:19:10.814242Z"}
+[info] 
+[info] === Serving from 'C:\Users\gosia\Documents\Project\Fork\ID-and-Passport-Generator'...
+[info] 
+[debug] [2026-02-21T22:25:27.130Z] Checked if tokens are valid: true, expires at: 1771716244143
+[debug] [2026-02-21T22:25:27.130Z] Checked if tokens are valid: true, expires at: 1771716244143
+[debug] [2026-02-21T22:25:27.130Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/id-and-passport-generator/sites 
+[debug] [2026-02-21T22:25:29.182Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/id-and-passport-generator/sites 200
+[debug] [2026-02-21T22:25:29.182Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/id-and-passport-generator/sites {"sites":[{"name":"projects/id-and-passport-generator/sites/id-and-passport-generator","defaultUrl":"https://id-and-passport-generator.web.app","appId":"1:401898094979:web:fa02733da7bf9c8bc4b6b6","type":"DEFAULT_SITE"}]}
+[debug] [2026-02-21T22:25:29.182Z] Checked if tokens are valid: true, expires at: 1771716244143
+[debug] [2026-02-21T22:25:29.182Z] Checked if tokens are valid: true, expires at: 1771716244143
+[debug] [2026-02-21T22:25:29.182Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/id-and-passport-generator/webApps/1:401898094979:web:fa02733da7bf9c8bc4b6b6/config [none]
+[debug] [2026-02-21T22:25:30.321Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/id-and-passport-generator/webApps/1:401898094979:web:fa02733da7bf9c8bc4b6b6/config 200
+[debug] [2026-02-21T22:25:30.321Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/id-and-passport-generator/webApps/1:401898094979:web:fa02733da7bf9c8bc4b6b6/config {"projectId":"id-and-passport-generator","appId":"1:401898094979:web:fa02733da7bf9c8bc4b6b6","storageBucket":"id-and-passport-generator.firebasestorage.app","apiKey":"AIzaSyAB0AyfuaMoYEiBrefz4cugQK0x16GkO8k","authDomain":"id-and-passport-generator.firebaseapp.com","messagingSenderId":"401898094979","measurementId":"G-S23Q5BRCL1","projectNumber":"401898094979","version":"2"}
+[debug] [2026-02-21T22:25:30.328Z] Checked if tokens are valid: true, expires at: 1771716244143
+[debug] [2026-02-21T22:25:30.328Z] Checked if tokens are valid: true, expires at: 1771716244143
+[debug] [2026-02-21T22:25:30.328Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/id-and-passport-generator [none]
+[debug] [2026-02-21T22:25:30.748Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/id-and-passport-generator 200
+[debug] [2026-02-21T22:25:30.748Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/id-and-passport-generator {"projectId":"id-and-passport-generator","projectNumber":"401898094979","displayName":"ID and Passport Generator","name":"projects/id-and-passport-generator","resources":{"hostingSite":"id-and-passport-generator"},"state":"ACTIVE","etag":"1_20d6d78f-1e34-4e79-b401-82359a484448"}
+[info] i  hosting[id-and-passport-generator]: Serving hosting files from: dist/sa-identity-generator/browser {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mdist/sa-identity-generator/browser\u001b[22m"}}
+[info] +  hosting[id-and-passport-generator]: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
+[info] i  hosting: ::1 - - [21/Feb/2026:22:25:32 +0000] "GET / HTTP/1.1" 200 1007 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [21/Feb/2026:22:25:32 +0000] \"GET / HTTP/1.1\" 200 1007 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36\""}}
+[info] i  hosting: ::1 - - [21/Feb/2026:22:25:32 +0000] "GET /polyfills-5CFQRCPP.js HTTP/1.1" 200 - "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [21/Feb/2026:22:25:32 +0000] \"GET /polyfills-5CFQRCPP.js HTTP/1.1\" 200 - \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36\""}}
+[info] i  hosting: ::1 - - [21/Feb/2026:22:25:32 +0000] "GET /main-V44J5TJP.js HTTP/1.1" 200 - "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [21/Feb/2026:22:25:32 +0000] \"GET /main-V44J5TJP.js HTTP/1.1\" 200 - \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36\""}}
+[info] i  hosting: ::1 - - [21/Feb/2026:22:25:32 +0000] "GET /styles-533H5XXC.css HTTP/1.1" 200 - "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [21/Feb/2026:22:25:32 +0000] \"GET /styles-533H5XXC.css HTTP/1.1\" 200 - \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36\""}}

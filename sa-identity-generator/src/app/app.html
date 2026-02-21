@@ -1,0 +1,67 @@
+<div class="app">
+
+  <div class="top-bar">
+    <h1><i class="fa-solid fa-id-card"></i> South African Identity Generator</h1>
+    <button class="toggle-btn" (click)="toggleTheme()" aria-label="Toggle theme">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+  </div>
+
+  <div class="card">
+
+    <div class="form-group">
+      <label for="dob">Date of Birth</label>
+      <input type="date" name="dob" placeholder="MM/DD/YYYY" [(ngModel)]="dob" [max]="maxDob">
+    </div>
+
+    <div class="form-group">
+      <label for="gender">Gender</label>
+      <select id="gender" [(ngModel)]="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </div>
+
+    <div class="button-group">
+      <button (click)="generateName()">
+        <i class="fa-solid fa-user"></i> Generate Name
+      </button>
+
+      <button (click)="generateID()">
+        <i class="fa-solid fa-id-badge"></i> Generate ID
+      </button>
+
+      <button (click)="generatePassport()">
+        <i class="fa-solid fa-passport"></i> Generate Passport
+      </button>
+    </div>
+
+    <div class="results">
+
+      <div class="result-box" [class.show]="lastGeneratedName">
+        <span class="result-text">Name: {{ lastGeneratedName }}</span>
+        <i class="fa-solid fa-clipboard copy-icon" (click)="copyToClipboard(lastGeneratedName)"></i>
+      </div>
+
+      <div class="result-box" [class.show]="lastGeneratedID">
+        <span class="result-text">SA ID: {{ lastGeneratedID }}</span>
+        <i class="fa-solid fa-clipboard copy-icon" (click)="copyToClipboard(lastGeneratedID)"></i>
+      </div>
+
+      <div class="result-box" [class.show]="lastGeneratedPassport">
+        <span class="result-text">Passport: {{ lastGeneratedPassport }}</span>
+        <i class="fa-solid fa-clipboard copy-icon" (click)="copyToClipboard(lastGeneratedPassport)"></i>
+      </div>
+
+    </div>
+
+    <div class="button-group">
+      <button (click)="exportToFile()">
+        <i class="fa-solid fa-file-export"></i> Save to TXT
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<div id="toast" class="toast" [class.show]="toastMessage">{{ toastMessage }}</div>

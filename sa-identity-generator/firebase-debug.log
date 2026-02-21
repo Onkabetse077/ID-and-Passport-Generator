@@ -1,0 +1,25 @@
+[debug] [2026-02-21T20:55:51.285Z] ----------------------------------------------------------------------
+[debug] [2026-02-21T20:55:51.288Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\gosia\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init hosting
+[debug] [2026-02-21T20:55:51.288Z] CLI Version:   14.12.0
+[debug] [2026-02-21T20:55:51.288Z] Platform:      win32
+[debug] [2026-02-21T20:55:51.288Z] Node Version:  v22.19.0
+[debug] [2026-02-21T20:55:51.288Z] Time:          Sat Feb 21 2026 22:55:51 GMT+0200 (South Africa Standard Time)
+[debug] [2026-02-21T20:55:51.289Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-02-21T20:55:51.497Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-21T20:55:51.497Z] > authorizing via signed-in user (gosiameonkabetse1@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\gosia\Documents\Project\Fork\ID-and-Passport-Generator
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+

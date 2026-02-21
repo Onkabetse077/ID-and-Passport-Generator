@@ -107,7 +107,7 @@ function exportToFile() {
   const link = document.createElement("a");
 
   link.href = URL.createObjectURL(blob);
-  link.download = lastGeneratedName.replace(" ", "_") + ".txt";
+  link.download = lastGeneratedName.replace(" ", "_") + "_" + lastGeneratedID.replace(" ", "_") + "_" + lastGeneratedPassport.replace(" ", "_") + ".txt";
 
   document.body.appendChild(link);
   link.click();

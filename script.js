@@ -44,7 +44,7 @@ function generateName() {
   const male = [
   "Thabo","Sipho","Neo","Liam","Daniel","Kagiso","Mandla",
   "Andile","Siyabonga","Teboho","Moses","Riaan","Kgosi","Jabulani",
-  "Sibusiso","Pule","Leroy","Lethabo","Cebo","Mandla","Nkabi"
+  "Sibusiso","Pule","Leroy","Lethabo","Cebo","Mandla","Jack","Thabiso"
 ];
 
 const female = [
@@ -57,7 +57,7 @@ const surnames = [
   "Nkosi","Mokoena","Smith","Dlamini","Zulu","Naidoo","Mthembu",
   "Mabena","Mahlangu","Mkhize","Mthethwa","Ndaba","Radebe",
   "Maseko","Mthembu","Mabuza","Buthelezi","Khumalo","Mpanza","Masango",
-  "Sebothoma"
+  "Aphane","Kekana"
 ];
 
   const first = (gender === "male" ? male : female)

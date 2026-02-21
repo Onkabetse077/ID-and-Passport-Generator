@@ -1,149 +1,136 @@
-document.getElementById("dob").max = new Date().toISOString().split("T")[0];
+document.getElementById("dob").max =
+  new Date().toISOString().split("T")[0];
 
 let lastGeneratedID = "";
 let lastGeneratedPassport = "";
 let lastGeneratedName = "";
 
-function pad(num, size) {
-  let s = num + "";
-  while (s.length < size) s = "0" + s;
-  return s;
+function pad(n, s) {
+  return n.toString().padStart(s, "0");
 }
 
 function luhnChecksum(id) {
   let sum = 0;
   for (let i = 0; i < 12; i++) {
-    let digit = parseInt(id.charAt(i));
+    let d = parseInt(id[i]);
     if ((i + 1) % 2 === 0) {
-      digit *= 2;
-      if (digit > 9) digit -= 9;
+      d *= 2;
+      if (d > 9) d -= 9;
     }
-    sum += digit;
+    sum += d;
   }
   return (10 - (sum % 10)) % 10;
+}
+
+function showToast(msg) {
+  const toast = document.getElementById("toast");
+  toast.innerText = msg;
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 2500);
+}
+
+function animateResult(id, text) {
+  const box = document.getElementById(id);
+  const span = box.querySelector(".result-text");
+  span.innerText = text;
+
+  box.classList.remove("show");
+  setTimeout(() => box.classList.add("show"), 50);
 }
 
 function generateName() {
   const gender = document.getElementById("gender").value;
 
-  const maleNames = [
-    "Liam","Noah","Ethan","Aiden","Lucas",
-    "Daniel","Michael","James","David","Matthew",
-    "Thabo","Sipho","Sibusiso","Mandla","Kagiso",
-    "Themba","Tshepo","Bongani","Sandile","Neo"
-  ];
+  const male = ["Thabo","Sipho","Neo","Liam","Daniel","Kagiso","Mandla"];
+  const female = ["Lerato","Naledi","Emma","Sophia","Ava","Zanele","Nandi"];
+  const surnames = ["Nkosi","Mokoena","Smith","Dlamini","Zulu","Naidoo","Mthembu"];
 
-  const femaleNames = [
-    "Olivia","Emma","Ava","Sophia","Mia",
-    "Isabella","Charlotte","Amelia","Harper","Ella",
-    "Lerato","Naledi","Zanele","Nokuthula","Nomvula",
-    "Boitumelo","Precious","Nandi","Thandiwe","Ayisha"
-  ];
+  const first = (gender === "male" ? male : female)
+    [Math.floor(Math.random() * (gender === "male" ? male.length : female.length))];
 
-  const surnames = [
-    "Smith","Johnson","Williams","Brown","Jones",
-    "Taylor","Anderson","Thomas","Jackson","White",
-    "Mokoena","Nkosi","Dlamini","Khumalo","Naidoo",
-    "Pillay","Ndlovu","Mabena","Mahlangu","Mthembu",
-    "Zulu","Modise","Molefe","Mkhize","Botha"
-  ];
+  const last = surnames[Math.floor(Math.random() * surnames.length)];
 
-  const firstNames = gender === "male" ? maleNames : femaleNames;
-
-  const randomFirst = firstNames[Math.floor(Math.random() * firstNames.length)];
-  const randomLast = surnames[Math.floor(Math.random() * surnames.length)];
-
-  const fullName = randomFirst + " " + randomLast;
-
-  lastGeneratedName = fullName;
-  document.getElementById("nameResult").innerText = "Generated Name: " + fullName;
+  lastGeneratedName = first + " " + last;
+  animateResult("nameResult", "Name: " + lastGeneratedName);
 }
 
 function generateID() {
-  const dobInput = document.getElementById("dob").value;
+  const dob = document.getElementById("dob").value;
+  if (!dob) return showToast("Enter DOB first");
+
+  const date = new Date(dob);
+
+  const dobStr =
+    pad(date.getFullYear() % 100, 2) +
+    pad(date.getMonth() + 1, 2) +
+    pad(date.getDate(), 2);
+
   const gender = document.getElementById("gender").value;
 
-  if (!dobInput) {
-    alert("Please enter a valid date of birth.");
-    return;
-  }
+  const genderSeq = gender === "male"
+    ? pad(Math.floor(Math.random() * 5000) + 5000, 4)
+    : pad(Math.floor(Math.random() * 5000), 4);
 
-  const date = new Date(dobInput);
-  const today = new Date();
+  const partial = dobStr + genderSeq + "08";
+  const checksum = luhnChecksum(partial);
 
-  if (date > today || date.getFullYear() < 1900) {
-    alert("DOB must be between 1900 and today.");
-    return;
-  }
-
-  const year = pad(date.getFullYear() % 100, 2);
-  const month = pad(date.getMonth() + 1, 2);
-  const day = pad(date.getDate(), 2);
-  const dob = year + month + day;
-
-  let genderSeq;
-  if (gender === "male") {
-    genderSeq = pad(Math.floor(Math.random() * 5000) + 5000, 4);
-  } else {
-    genderSeq = pad(Math.floor(Math.random() * 5000), 4);
-  }
-
-  let citizenship = Math.random() < 0.9 ? "0" : "1";
-  let race = "8";
-
-  let partialID = dob + genderSeq + citizenship + race;
-  let checksum = luhnChecksum(partialID);
-  let fullID = partialID + checksum;
-
-  lastGeneratedID = fullID;
-  document.getElementById("idResult").innerText = "Generated ID: " + fullID;
+  lastGeneratedID = partial + checksum;
+  animateResult("idResult", "SA ID: " + lastGeneratedID);
 }
 
 function generatePassport() {
-  let prefix = Math.random() < 0.5 ? "A" : "B";
-  let number = Math.floor(Math.random() * 100000000);
-  let passport = prefix + pad(number, 8);
+  const prefix = Math.random() < 0.5 ? "A" : "B";
+  const number = pad(Math.floor(Math.random() * 100000000), 8);
 
-  lastGeneratedPassport = passport;
-  document.getElementById("passportResult").innerText = "Generated Passport: " + passport;
+  lastGeneratedPassport = prefix + number;
+  animateResult("passportResult", "Passport: " + lastGeneratedPassport);
 }
 
 function exportToFile() {
-  let content = "";
+  if (!lastGeneratedName)
+    return showToast("Generate a name first");
 
-  if (lastGeneratedName) content += "Full Name: " + lastGeneratedName + "\n";
-  if (lastGeneratedID) content += "SA ID Number: " + lastGeneratedID + "\n";
-  if (lastGeneratedPassport) content += "Passport Number: " + lastGeneratedPassport + "\n";
+  if (!lastGeneratedID && !lastGeneratedPassport)
+    return showToast("Generate ID or Passport");
 
-  if (!content) {
-    alert("Please generate something first.");
-    return;
-  }
+  let content = "Generated Identity\n";
+  content += "-------------------\n\n";
+  content += "Full Name: " + lastGeneratedName + "\n";
+
+  if (lastGeneratedID)
+    content += "SA ID Number: " + lastGeneratedID + "\n";
+
+  if (lastGeneratedPassport)
+    content += "Passport Number: " + lastGeneratedPassport + "\n";
 
   const blob = new Blob([content], { type: "text/plain" });
   const link = document.createElement("a");
 
   link.href = URL.createObjectURL(blob);
-  link.download = "generated_documents.txt";
+  link.download = lastGeneratedName.replace(" ", "_") + ".txt";
 
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
+
+  showToast("Saved successfully");
 }
 
-function copyToClipboard() {
-  let content = "";
+function toggleTheme() {
+  document.body.classList.toggle("dark");
+}
 
-  if (lastGeneratedName) content += "Full Name: " + lastGeneratedName + "\n";
-  if (lastGeneratedID) content += "SA ID Number: " + lastGeneratedID + "\n";
-  if (lastGeneratedPassport) content += "Passport Number: " + lastGeneratedPassport + "\n";
+function copyFromBox(id) {
+  const box = document.getElementById(id);
+  const fullText = box.querySelector(".result-text").innerText;
 
-  if (!content) {
-    alert("Please generate something first.");
-    return;
-  }
+  if (!fullText) return;
 
-  navigator.clipboard.writeText(content)
-    .then(() => alert("Copied to clipboard!"))
-    .catch(err => alert("Failed to copy: " + err));
+  // Split at colon and trim spaces
+  const valueOnly = fullText.includes(":")
+    ? fullText.split(":")[1].trim()
+    : fullText;
+
+  navigator.clipboard.writeText(valueOnly);
+  showToast("Copied to clipboard");
 }

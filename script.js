@@ -41,9 +41,24 @@ function animateResult(id, text) {
 function generateName() {
   const gender = document.getElementById("gender").value;
 
-  const male = ["Thabo","Sipho","Neo","Liam","Daniel","Kagiso","Mandla"];
-  const female = ["Lerato","Naledi","Emma","Sophia","Ava","Zanele","Nandi"];
-  const surnames = ["Nkosi","Mokoena","Smith","Dlamini","Zulu","Naidoo","Mthembu"];
+  const male = [
+  "Thabo","Sipho","Neo","Liam","Daniel","Kagiso","Mandla",
+  "Andile","Siyabonga","Teboho","Moses","Riaan","Kgosi","Jabulani",
+  "Sibusiso","Pule","Leroy","Lethabo","Cebo","Mandla","Jack","Thabiso"
+];
+
+const female = [
+  "Lerato","Naledi","Emma","Sophia","Ava","Zanele","Nandi",
+  "Thandeka","Sibongile","Busisiwe","Karabo","Amara","Precious",
+  "Nosipho","Mpho","Buhle","Lindiwe","Dineo","Palesa","Nomsa"
+];
+
+const surnames = [
+  "Nkosi","Mokoena","Smith","Dlamini","Zulu","Naidoo","Mthembu",
+  "Mabena","Mahlangu","Mkhize","Mthethwa","Ndaba","Radebe",
+  "Maseko","Mthembu","Mabuza","Buthelezi","Khumalo","Mpanza","Masango",
+  "Aphane","Kekana"
+];
 
   const first = (gender === "male" ? male : female)
     [Math.floor(Math.random() * (gender === "male" ? male.length : female.length))];

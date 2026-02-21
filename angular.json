@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+             "outputPath": "dist/sa-identity-generator/browser",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
